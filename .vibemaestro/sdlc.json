@@ -17,5 +17,8 @@
       ".vibemaestro/rules/**",
       "**/*secret*"
     ]
+  },
+  "sensitive": {
+    "allowlist": ".vibemaestro/pr-sensitive-allow"
   }
 }

@@ -1,0 +1,8 @@
+# Allowlist of the sensitive-info gate (.vibemaestro/gates/pr_sensitive.py): ONLY for a false positive that a person has looked at.
+#
+# The workflow reads this file at the BASE of the PR, not at its head: a line added in a PR takes effect for the PRs AFTER it has
+# merged. That is deliberate: no PR can exempt the value it is itself leaking.
+#
+# Format: <sha256 of exactly the value that was caught>  # kind - where it was seen - why it is not sensitive
+# Take the sha256 from the RED line when you run the scanner on your own machine (CI does not print it: the hash of a value with little
+# entropy, such as an IPv4 address, can be reversed from a public log). Never write the value itself in this file.
