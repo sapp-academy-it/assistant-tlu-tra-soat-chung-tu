@@ -6,7 +6,7 @@ description: "Spec trợ lý tra soát chứng từ thanh toán: nhận bộ ch�
 
 Intent: kb/intent/2026-10-29-tra-soat-chung-tu.md
 
-Trạng thái: ĐỀ XUẤT, chờ chủ sở hữu duyệt. Các ngưỡng ở mục "Ngưỡng chấm điểm" đóng băng khi chủ sở hữu duyệt, trước khi có bất kỳ test case nào.
+Trạng thái: ĐÃ DUYỆT ngày 2026-10-30 (bản đã duyệt: commit 61d6e29). Lời chủ sở hữu: "tôi duyệt specs, hãy merge và tiếp tục công việc". Các ngưỡng ở mục "Ngưỡng chấm điểm" đóng băng từ lúc này. Bốn câu hỏi mở dành cho chuyên gia chưa được trả lời và vẫn mở (bảng kê chưa nói chứng từ nào bắt buộc; mẫu giấy đi đường theo thông tư cũ hơn; chuyên gia thứ hai; định mức chi tiết chỉ cho công tác phí).
 
 ## Bối cảnh
 
