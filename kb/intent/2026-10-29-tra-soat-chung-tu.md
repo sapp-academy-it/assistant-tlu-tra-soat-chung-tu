@@ -1,5 +1,6 @@
 ---
 issue: 1
+spec: kb/specs/2026-10-29-tra-soat-chung-tu.md
 description: "Trợ lý AI tra soát chứng từ thanh toán: kiểm tra bộ chứng từ có hợp lệ theo quy chế không"
 ---
 
