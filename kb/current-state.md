@@ -4,8 +4,10 @@ Chỉ ghi trạng thái hiện hành, viết đè khi repo đổi. Không lịch
 
 ## Đang chạy
 
-(chưa ghi — mỗi dòng một khẳng định đúng ngay bây giờ: "X chạy ở Y", "Z do W đảm nhận")
+- Repo công khai của một trợ lý AI tra soát chứng từ thanh toán; tài liệu của khách hàng chỉ nằm trên máy chủ sở hữu, không vào git (`.gitignore`, `inputs/README.md`).
+- Spec của trợ lý đã được chủ sở hữu duyệt, ngưỡng chấm điểm đã đóng băng: `kb/specs/2026-10-29-tra-soat-chung-tu.md`.
 
 ## Chưa có / đang tắt
 
-(chưa ghi)
+- Chưa có `assistant/` (bản dựng), chưa có test case, chưa có tag phiên bản, chưa có điểm chấm.
+- Bốn câu hỏi mở cho chuyên gia nghiệp vụ còn mở, ghi trong spec.
