@@ -4,7 +4,7 @@ Chỉ ghi trạng thái hiện hành, viết đè khi repo đổi. Không lịch
 
 ## Đang chạy
 
-(chưa ghi — mỗi dòng một khẳng định đúng ngay bây giờ: "X chạy ở Y", "Z do W đảm nhận")
+Năm cổng quy trình (commit-discipline, pr-sensitive, pr-title, pr-body, dead-branches) chạy trên runner GitHub-hosted (biến CI_RUNNER, mặc định ubuntu-latest); mã cổng ở `.vibemaestro/gates/`.
 
 ## Chưa có / đang tắt
 
