@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "language": "vi",
+  "rules": {
+    "dirs": [
+      ".vibemaestro/rules"
+    ]
+  },
+  "current_state": {
+    "template": "ledger"
+  },
+  "merge": {
+    "deny_globs": [
+      ".github/workflows/**",
+      ".vibemaestro/*",
+      ".vibemaestro/gates/**",
+      ".vibemaestro/rules/**",
+      "**/*secret*"
+    ]
+  },
+  "sensitive": {
+    "allowlist": ".vibemaestro/pr-sensitive-allow"
+  }
+}
