@@ -4,7 +4,9 @@ Chỉ ghi trạng thái hiện hành, viết đè khi repo đổi. Không lịch
 
 ## Đang chạy
 
-Năm cổng quy trình (commit-discipline, pr-sensitive, pr-title, pr-body, dead-branches) chạy trên runner GitHub-hosted: workflow đọc biến `CI_GATE_RUNNER`, rồi `CI_RUNNER`, dự phòng `ubuntu-latest`; mã cổng ở `.vibemaestro/gates/`.
+- Năm cổng quy trình chạy trên runner GitHub-hosted: commit-discipline, pr-sensitive, pr-title, pr-body, dead-branches.
+- Workflow đọc biến `CI_GATE_RUNNER`, rồi `CI_RUNNER`, dự phòng `ubuntu-latest`.
+- Mã cổng ở `.vibemaestro/gates/`.
 
 ## Chưa có / đang tắt
 
