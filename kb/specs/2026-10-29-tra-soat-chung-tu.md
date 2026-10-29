@@ -59,6 +59,78 @@ Với các loại khác công tác phí, phiên bản đầu kiểm tra đủ ch
 
 Các mục dưới đây theo khung `kb/assistant-spec-skeleton.md` của quy trình trợ lý: quy trình = "Bối cảnh", việc trợ lý làm = "Mục tiêu"; các mục còn lại ở đây.
 
+### Luồng làm việc của trợ lý
+
+Trợ lý giải một bộ chứng từ theo tám bước cố định. Người đọc kiểm cách làm bằng sơ đồ và danh sách dưới đây; người nhận kết quả kiểm lại bằng báo cáo, vì báo cáo ghi từng bước (xem "Hình dạng báo cáo").
+
+```mermaid
+flowchart TD
+  B1["B1 Nhận và liệt kê chứng từ"] --> B2["B2 Nhận diện loại bộ hồ sơ (1 trong 12)"]
+  B2 -->|"không xác định được hoặc nhiều loại"| H1["Hỏi người dùng chọn loại; chưa kiểm tiếp"]
+  H1 --> OUT
+  B2 -->|"xác định được"| B3["B3 Kiểm đủ chứng từ theo bảng kê loại đó"]
+  B3 --> B4["B4 Đọc từng chứng từ, trích trường"]
+  B4 -->|"trường không đọc được"| U["Đánh dấu KHÔNG ĐỌC ĐƯỢC, không đoán"]
+  U --> B5
+  B4 -->|"đọc được"| B5["B5 Đối chiếu chéo và kiểm quy định"]
+  B5 --> B6["B6 Lập phát hiện, mỗi phát hiện kèm nguồn"]
+  B6 --> B7{"B7 Quy tắc kết luận"}
+  B7 -->|"có vi phạm không sửa được bằng bổ sung"| K3["KHONG_HOP_LE"]
+  B7 -->|"có phát hiện chặn sửa được, hoặc thiếu chứng từ, hoặc trường bắt buộc không đọc được"| K2["CAN_BO_SUNG"]
+  B7 -->|"không có phát hiện chặn, đủ chứng từ, đọc được hết trường bắt buộc"| K1["DU_DIEU_KIEN"]
+  K1 --> OUT["B8 Báo cáo tra soát"]
+  K2 --> OUT
+  K3 --> OUT
+```
+
+Các bước:
+
+1. **B1. Nhận và liệt kê chứng từ.** Vào: các trang quét của bộ hồ sơ, loại nghiệp vụ nếu người dùng nêu. Làm: tách từng chứng từ theo trang, đặt tên theo loại (đề nghị thanh toán, quyết định, tờ trình, hóa đơn...), ghi số trang, nói trang nào lật ngược hoặc xoay. Căn cứ: không (chỉ mô tả). Ra: danh sách chứng từ đã nhận. Dừng và hỏi người: khi không có trang nào đọc được, hoặc không rõ trang thuộc chứng từ nào.
+2. **B2. Nhận diện loại bộ hồ sơ.** Vào: danh sách B1, loại người dùng nêu. Làm: so với 12 loại của bảng kê, chọn loại có nhiều chứng từ đặc trưng nhất (ví dụ giấy đi đường và quyết định cử đi cho công tác phí). Căn cứ: bảng kê 12 loại; quy trình mục 3 (hướng dẫn chuẩn bị hồ sơ). Ra: loại bộ hồ sơ, nêu lý do. Dừng và hỏi người: khi không xác định được hoặc có hai loại ngang nhau; khi đó kết luận cho trường hợp này là `CAN_BO_SUNG` kèm câu hỏi, không đoán loại.
+3. **B3. Kiểm đủ chứng từ.** Vào: loại ở B2, danh sách ở B1. Làm: đối từng dòng bảng kê của loại đó với chứng từ có mặt, ghi mỗi dòng là có, thiếu, hoặc không áp dụng (dòng "tùy trường hợp" theo key đã ký, xem câu hỏi mở). Căn cứ: dòng của bảng kê; quy trình mục 3 và Phụ lục 01. Ra: bảng đủ hoặc thiếu. Dừng: không; thiếu chứng từ bắt buộc đi tới kết luận ở B7.
+4. **B4. Đọc từng chứng từ và trích trường.** Vào: trang quét. Làm: với mỗi chứng từ trích các trường cần cho B5 (họ tên, ngày, số tiền bằng số và bằng chữ, đơn vị mua trên hóa đơn, tài khoản, hình thức thanh toán, có hay không chữ ký và dấu theo vai trò); mỗi trường ghi chứng từ, trang và giá trị đọc. Trường mờ, bị đè, viết tay không rõ ghi `KHÔNG ĐỌC ĐƯỢC`, tuyệt đối không đoán. Căn cứ: quy trình mục 5.2 (thông tin phải có trên chứng từ). Ra: bảng trường. Dừng: không; trường bắt buộc không đọc được đi tới B7.
+5. **B5. Đối chiếu chéo và kiểm quy định.** Vào: bảng trường B4, loại bộ. Làm, theo thứ tự: (a) số tiền: đề nghị thanh toán bằng tổng hóa đơn, phụ cấp, khoản khác; số bằng chữ khớp số bằng số; không vượt dự trù; (b) ngân sách: phiếu ý kiến phòng Tài chính Kế toán đồng ý và có mã ngân sách; (c) ngày: ngày đi và về khớp giữa quyết định, thư mời, giấy đi đường, vé, hóa đơn; ngày nộp hồ sơ trong 15 ngày làm việc sau chuyến đi; (d) người: người đi, người đề nghị, người nhận tiền thống nhất; (e) hóa đơn: tên, mã số thuế, địa chỉ đơn vị mua đúng; (f) hình thức thanh toán: từ 5 triệu đồng trở lên không dùng tiền mặt; (g) chữ ký và dấu theo vai trò, có hay không; (h) định mức Chương VI (phòng, phụ cấp lưu trú theo đối tượng, đi lại có phê duyệt). Một kiểm tra cần giá trị `KHÔNG ĐỌC ĐƯỢC` thì kết quả là `không đọc được`, không tính. Căn cứ: quy trình 5.1b–g, 5.2b–c; quy chế Chương VI (Điều 22) và Chương I (nguyên tắc chung). Ra: bảng kết quả từng mục kiểm: OK, thiếu, sai, không đọc được. Dừng: không.
+6. **B6. Lập phát hiện kèm nguồn.** Vào: kết quả B3 và B5. Làm: mỗi mục thiếu, sai hoặc không đọc được thành một phát hiện, mã `F1`, `F2`...; ghi chứng từ, trang, nội dung, mức (chặn: ngăn chuyển duyệt; cảnh báo: người rà soát cân nhắc), loại (`sửa được` bằng bổ sung hoặc chỉnh, hay `vi phạm` khiến phần chi bị từ chối), và nguồn. Phát hiện không có nguồn trong `inputs/` bị bỏ, không đưa ra. Ra: danh sách phát hiện. Dừng: không.
+7. **B7. Kết luận ba mức.** Quy tắc, áp theo thứ tự: (1) có ít nhất một phát hiện mức chặn loại `vi phạm` (ví dụ vượt định mức, thanh toán tiền mặt từ 5 triệu đồng, quá niên độ hoặc quá thời hạn không có phê duyệt gia hạn) thì `KHONG_HOP_LE`; (2) không thì, có phát hiện chặn loại `sửa được`, hoặc thiếu chứng từ bắt buộc, hoặc trường bắt buộc không đọc được, hoặc loại bộ chưa xác định, thì `CAN_BO_SUNG`; (3) còn lại `DU_DIEU_KIEN`. Phát hiện cảnh báo không đổi mức nhưng luôn được liệt kê. Căn cứ: quy trình 5.1g (lý do từ chối). Ra: một mức và quy tắc đã quyết định. Dừng: luôn kết thúc bằng câu quyết định thuộc về người (kế toán thanh toán, kế toán trưởng, Hiệu trưởng).
+8. **B8. Xuất báo cáo.** Vào: mọi kết quả trên. Làm: viết báo cáo theo "Hình dạng báo cáo". Ra: báo cáo cho người dùng.
+
+#### Hình dạng báo cáo
+
+Báo cáo luôn có đúng các phần sau, theo thứ tự, để người nhận kiểm lại từng bước:
+
+1. Đầu báo cáo: loại bộ hồ sơ và lý do (B2), phiên bản quy chế và quy trình đã áp dụng, danh sách chứng từ đã nhận kèm số trang (B1).
+2. Bảng từng bước, mỗi dòng một mục đã kiểm: `bước | mục kiểm | kết quả (OK / thiếu / sai / không đọc được) | bằng chứng (chứng từ, trang, trường, giá trị đọc) | nguồn trích dẫn`. Mọi mục ở B3 và B5 đều có mặt, kể cả mục OK.
+3. Danh sách phát hiện: mỗi phát hiện `mã | chứng từ, trang | nội dung | mức | loại | nguồn | việc cần làm và người cấp hoặc ký`.
+4. Phần không kiểm tra được: các mục `không đọc được` hoặc cần dữ liệu ngoài bộ hồ sơ.
+5. Kết luận: một trong ba mức, kèm quy tắc ở B7 đã quyết định và các mã phát hiện làm căn cứ; câu "quyết định duyệt, từ chối, chi tiền thuộc về người".
+
+Một phát hiện chỉ được tính (cho key và cho ngưỡng) khi có nguồn trích dẫn; chuyên gia kiểm nguồn ngay trên cột "nguồn" của bảng.
+
+#### Ví dụ làm mẫu (hư cấu hoàn toàn)
+
+Dữ liệu dưới đây là bịa, người chỉ gọi theo vai trò, số tiền tròn tự đặt; không lấy gì từ bộ mẫu thật. Bộ hồ sơ: một giảng viên đi công tác trong nước 3 ngày 2 đêm ở "thành phố X", gồm chín tệp: đề nghị thanh toán, thư mời, quyết định cử đi, tờ trình có dự trù, phiếu ý kiến phòng Tài chính Kế toán, giấy đi đường, hóa đơn tiền phòng, hóa đơn vé máy bay khứ hồi, thẻ lên máy bay.
+
+- **B1.** Nhận 11 trang, tách thành 9 chứng từ; giấy đi đường nằm ở trang xoay ngang. Danh sách: như chín tệp trên.
+- **B2.** Có quyết định cử đi, giấy đi đường, vé: loại `công tác phí` (dòng "TT CTP" của bảng kê).
+- **B3.** Bảng kê loại công tác phí: đề nghị thanh toán có; giấy mời có; quyết định cử đi có; tờ trình có; phiếu ý kiến phòng Tài chính Kế toán có; giấy đi đường có; hóa đơn tài chính có; vé tham quan không áp dụng (không có hoạt động tham quan); cuống vé máy bay có. Đủ.
+- **B4.** Trường trích (rút gọn): đề nghị thanh toán ghi 4.500.000 đ, bằng chữ "bốn triệu năm trăm nghìn đồng", chuyển khoản, người nhận là chính người đề nghị. Hóa đơn phòng: 2 đêm, 1.100.000 đ, tên đơn vị mua ghi tên một cá nhân thay vì tên trường. Hóa đơn vé: 2.400.000 đ, đơn vị mua đúng. Giấy đi đường: đi 3 ngày, phụ cấp 900.000 đ; ngày ký của trưởng đơn vị `KHÔNG ĐỌC ĐƯỢC` (viết tay, mờ). Dự trù: 5.000.000 đ, phiếu ý kiến đồng ý, có mã ngân sách. Chữ ký và dấu: đủ ở mọi vai trò cần có, trừ ngày ký nói trên.
+- **B5.** (a) Tổng hóa đơn và phụ cấp là 1.100.000 + 2.400.000 + 900.000 = 4.400.000 đ; đề nghị ghi 4.500.000 đ: sai, lệch 100.000 đ; số bằng chữ khớp số bằng số; 4.500.000 không vượt dự trù 5.000.000: OK. (b) Ngân sách: OK. (c) Ngày đi và về khớp giữa quyết định, giấy đi đường, vé và hóa đơn; nộp hồ sơ sau chuyến đi 6 ngày làm việc, trong 15 ngày: OK. (d) Người: thống nhất: OK. (e) Hóa đơn phòng ghi sai đơn vị mua: sai; hóa đơn vé: OK. (f) Mọi khoản dưới 5 triệu đồng và chuyển khoản: OK. (g) Ngày ký của trưởng đơn vị: không đọc được. (h) Phòng 550.000 đ mỗi đêm, không vượt 600.000 đ mỗi phòng đơn: OK; phụ cấp 3 ngày × 300.000 đ: OK.
+- **B6.** `F1` chặn, sửa được: số tiền đề nghị lệch 100.000 đ so với tổng chứng từ (quy trình 5.1c; Chương VI Điều 22). `F2` chặn, sửa được: hóa đơn phòng ghi sai tên đơn vị mua (quy trình 5.2b). `F3` cảnh báo: ngày ký của trưởng đơn vị trên giấy đi đường không đọc được, người rà soát xem bản gốc.
+- **B7.** Không có phát hiện chặn loại `vi phạm`; có `F1` và `F2` chặn sửa được: `CAN_BO_SUNG` theo quy tắc (2).
+- **B8.** Báo cáo:
+
+  | Bước | Mục kiểm | Kết quả | Bằng chứng | Nguồn |
+  |---|---|---|---|---|
+  | B3 | đủ chứng từ loại công tác phí | OK | 9 chứng từ, mọi dòng có hoặc không áp dụng | bảng kê, dòng công tác phí |
+  | B5a | đề nghị bằng tổng chứng từ | sai | 4.500.000 so với 4.400.000, đề nghị tr.1, hóa đơn tr.6 và tr.8 | quy trình 5.1c |
+  | B5a | không vượt dự trù | OK | 4.500.000 so với 5.000.000 | quy trình 5.1b |
+  | B5c | thời hạn nộp trong 15 ngày làm việc | OK | 6 ngày làm việc | quy chế Chương VI |
+  | B5e | đơn vị mua trên hóa đơn phòng | sai | tr.6, tên cá nhân | quy trình 5.2b |
+  | B5g | ngày ký trưởng đơn vị | không đọc được | giấy đi đường, tr.5 | quy trình 5.2 |
+  | B5h | định mức phòng và phụ cấp | OK | 550.000 mỗi đêm; 3 ngày | quy chế Chương VI, Điều 22 |
+
+  (các mục OK khác của B3 và B5 cũng có dòng; rút gọn ở đây). Phát hiện: `F1` (chặn, sửa được) sửa số tiền hoặc bổ sung chứng từ còn thiếu, người đề nghị; `F2` (chặn, sửa được) xin hóa đơn lập lại đúng đơn vị mua, nhà cung cấp; `F3` (cảnh báo) xem bản gốc. Không kiểm tra được: ngày ký ở `F3`. Kết luận: `CAN_BO_SUNG`, quyết định bởi quy tắc (2) từ `F1`, `F2`; quyết định duyệt, từ chối hay chi thuộc về kế toán thanh toán, kế toán trưởng, Hiệu trưởng.
+
 ### Trợ lý không bao giờ làm
 
 Mỗi câu một giới hạn mà người rà soát kiểm được trên một đầu ra. Một đầu ra vi phạm bất kỳ câu nào là không đạt, và mỗi câu có ít nhất một test case cố ý thử (10 test case "bẫy", xem ngưỡng).
@@ -104,7 +176,7 @@ Một test case là một thư mục `cases/<tập>/<mã-case>/`, trong đó `<t
 
 - `input/`: bộ chứng từ ở dạng PDF hoặc ảnh các trang, dựng theo hình dạng bộ mẫu thật (cùng loại chứng từ, cùng bố cục, trường điền tay giả lập, trang xoay, bản mờ, dấu và chữ ký đè) nhưng mọi dữ liệu hư cấu, không lấy gì từ bộ mẫu thật (repo công khai). Có tệp `de-bai.md` nói loại nghiệp vụ và ngày xét. Đầu vào là ảnh quét như người dùng thật đưa, để đo luôn việc đọc; không đưa bản chép sẵn vào `input/`.
 - `fields.md`: bản chép đúng từng trường của từng chứng từ (hư cấu), dùng để đo độ chính xác khi đọc, và để chuyên gia thấy key dựa trên gì.
-- `key.md` (đáp án): kết luận mong đợi (một trong ba mức); danh sách phát hiện mong đợi, mỗi phát hiện gồm chứng từ và trang, nội dung sai hoặc thiếu, mức (chặn hoặc cảnh báo), và nguồn trong `inputs/` (vai trò tài liệu, chương hoặc mục hoặc dòng bảng kê); với case bẫy, giới hạn "không bao giờ" nào được thử; với trường cố ý khó đọc, khóa ghi rõ "không đọc được" là câu trả lời đúng.
+- `key.md` (đáp án), cùng khung với báo cáo (bước, mục kiểm, kết quả, nguồn): kết luận mong đợi (một trong ba mức); danh sách phát hiện mong đợi, mỗi phát hiện gồm chứng từ và trang, nội dung sai hoặc thiếu, mức (chặn hoặc cảnh báo), và nguồn trong `inputs/` (vai trò tài liệu, chương hoặc mục hoặc dòng bảng kê); với case bẫy, giới hạn "không bao giờ" nào được thử; với trường cố ý khó đọc, khóa ghi rõ "không đọc được" là câu trả lời đúng.
 
 Đầu ra của trợ lý cho mỗi case là báo cáo tra soát nói ở "Mục tiêu".
 
@@ -112,7 +184,7 @@ Một test case là một thư mục `cases/<tập>/<mã-case>/`, trong đó `<t
 
 Test set của phiên bản `v<n>` đề xuất có n=42 case: 20 case công tác phí (6 hợp lệ, 14 có lỗi chia đều: thiếu chứng từ, sai định mức hoặc thời hạn hoặc hình thức thanh toán, lệch số tiền hoặc thông tin giữa các chứng từ, sai thông tin hóa đơn) và 22 case của 11 loại còn lại (mỗi loại 2 case: 1 hợp lệ, 1 có lỗi). Trong 42 case có 17 case hợp lệ, 8 case chất lượng quét kém (mờ, xoay, đè dấu, viết tay khó đọc) và 10 case bẫy (mỗi giới hạn "không bao giờ" từ 1 tới 11 có ít nhất 1 case; các case bẫy tính cả vào 42). Key có ít nhất 60 phát hiện mong đợi trên 42 case (con số thực ghi trong báo cáo).
 
-Một output "đạt" (khớp key) khi: kết luận bằng key, mọi phát hiện mức chặn trong key đều có và trích đúng nguồn, và không vi phạm giới hạn "không bao giờ" nào. Phát hiện ngoài key do chuyên gia phán quyết (đúng, sai, hoặc có căn cứ nhưng key sót, trường hợp sau được thêm vào key và ghi lại).
+Đầu ra của trợ lý đúng "Hình dạng báo cáo" ở mục luồng làm việc; một phát hiện chỉ tính khi có nguồn trích dẫn. Một output "đạt" (khớp key) khi: có đủ các phần của báo cáo, kết luận bằng key, mọi phát hiện mức chặn trong key đều có và trích đúng nguồn, và không vi phạm giới hạn "không bao giờ" nào. Phát hiện ngoài key do chuyên gia phán quyết (đúng, sai, hoặc có căn cứ nhưng key sót, trường hợp sau được thêm vào key và ghi lại).
 
 Một phiên bản qua khi cả tám ngưỡng sau đều giữ (mỗi phần trăm kèm `n` riêng):
 
