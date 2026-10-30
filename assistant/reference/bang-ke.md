@@ -19,11 +19,11 @@ Nguồn: bảng kê chứng từ gửi P.TCKT, 12 loại hồ sơ (xlsx, sha256 
 | Học bổng | Hoc bổng | quyết định tặng học bổng, danh sách ký nhận tiền |
 | Đề tài NCKH | Đề tài NCKH | quyết định phê duyệt giao đề tài, biên bản nghiệm thu, giấy chứng nhận nộp sản phẩm |
 | Sách, giáo trình | Đề tài sách, GT | quyết định giao nhiệm vụ biên soạn, hợp đồng biên soạn |
-| Mua hàng hóa, dịch vụ | Mua hàng hóa dịch vụ | hợp đồng, báo giá, biên bản nghiệm thu, phiếu nhập xuất kho, hóa đơn |
+| Mua hàng hóa, dịch vụ | Mua hàng hóa dịch vụ | nội dung chi là mua hàng hóa, dịch vụ, vật tư, sửa chữa (ghi ở đề nghị, tờ trình); phiếu nhập kho, phiếu xuất kho, đơn đặt hàng, phiếu giao hàng hoặc bảo hành, chứng nhận chất lượng hoặc xuất xứ |
 | Quyết toán chương trình | QT CT | bảng quyết toán chương trình, danh sách sinh viên nhận tiền |
 | Tuyển dụng | Tuyển dụng | quyết định tuyển dụng, bảng thanh toán tiền chấm thi và hướng dẫn |
 
-Hai loại ngang nhau hoặc không có chứng từ đặc trưng: hỏi người dùng chọn loại (B2).
+Chứng từ dùng chung không chọn loại: giấy đề nghị thanh toán, tờ trình, phiếu ý kiến P.TCKT, hóa đơn, hợp đồng, báo giá, biên bản nghiệm thu, biên bản thanh lý, danh sách chuyển khoản. Một sheet chỉ thắng bằng chứng từ đặc trưng của nó (cột cuối), không bao giờ bằng các chứng từ dùng chung. Thứ tự: (1) có chứng từ đặc trưng của đúng một trong 10 sheet (ví dụ quyết toán chương trình thì QT CT, quyết định tổ chức hội thảo thì Hội nghị hội thảo): loại đó; (2) không có, nhưng có chứng từ đặc trưng của một nghiệp vụ chưa có sheet (mục "Loại chưa có sheet"): loại chưa có sheet; (3) chỉ có chứng từ dùng chung: nội dung chi quyết định, chi mua hàng hóa, dịch vụ, vật tư, sửa chữa thì Mua hàng hóa dịch vụ; (4) hai loại ngang nhau hoặc không xác định: hỏi người dùng chọn loại (B2).
 
 ## Danh sách theo loại
 
@@ -69,4 +69,4 @@ Cốt lõi: giấy đề nghị thanh toán; danh sách chuyển khoản; bảng
 
 ## Loại chưa có sheet
 
-Phụ lục 01 của quy trình (tóm tắt ở `quy-dinh.md`, mục Phụ lục 01) còn nghiệp vụ không có sheet trong bảng kê, ví dụ quảng cáo trên nền tảng mạng xã hội, hoạt động tổ chức sự kiện, học phần thực hành hoặc mô hình thực hành cho sinh viên, tiền nhân công thuê khoán. Nhận diện: bộ có chứng từ đặc trưng của các nghiệp vụ đó (bảng phân bổ chi phí quảng cáo; bảng tổng hợp quyết toán sự kiện; định mức nguyên vật liệu, nhân công cho thực hành; hợp đồng giao khoán) và không khớp rõ với 10 loại ở trên. Khớp với bất kỳ sheet nào trong 10 loại luôn thắng đường này (ví dụ bộ có quyết toán chương trình, hoặc quyết định tổ chức hội thảo, thuộc QT CT hay Hội nghị hội thảo, không thuộc loại chưa có sheet). Với loại này không có bảng kê để đối chiếu nên B3 là `không kiểm tra được`, kết luận tối đa `CAN_BO_SUNG`, không bao giờ `DU_DIEU_KIEN`; B4 đến B6 vẫn làm. Hai loại còn lại trong "12 loại" của spec chưa xác định (nguồn không nêu).
+Phụ lục 01 của quy trình (tóm tắt ở `quy-dinh.md`, mục Phụ lục 01) còn nghiệp vụ không có sheet trong bảng kê, ví dụ quảng cáo trên nền tảng mạng xã hội, hoạt động tổ chức sự kiện, học phần thực hành hoặc mô hình thực hành cho sinh viên, tiền nhân công thuê khoán. Nhận diện: bộ có chứng từ đặc trưng của các nghiệp vụ đó (bảng phân bổ chi phí quảng cáo; bảng tổng hợp quyết toán sự kiện; định mức nguyên vật liệu, nhân công cho thực hành; hợp đồng giao khoán) và không khớp rõ với 10 loại ở trên. Chỉ chứng từ đặc trưng của một sheet mới đưa bộ sang sheet đó (ví dụ quyết toán chương trình thì QT CT, quyết định tổ chức hội thảo thì Hội nghị hội thảo); hóa đơn, hợp đồng, báo giá, biên bản nghiệm thu không đưa bộ sang Mua hàng hóa dịch vụ khi đã có chứng từ đặc trưng của nghiệp vụ chưa có sheet. Với loại này không có bảng kê để đối chiếu nên B3 là `không kiểm tra được`, kết luận tối đa `CAN_BO_SUNG`, không bao giờ `DU_DIEU_KIEN`; B4 đến B6 vẫn làm. Hai loại còn lại trong "12 loại" của spec chưa xác định (nguồn không nêu).
