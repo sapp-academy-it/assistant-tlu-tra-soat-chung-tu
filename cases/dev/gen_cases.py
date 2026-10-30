@@ -401,10 +401,10 @@ def cv(title, rows=None, body=None, lines=None, sigs=None, table=None):
     return sp
 
 
-def dntt_chung(noidung, so_tien, chu, pay="Chuyển khoản"):
+def dntt_chung(noidung, so_tien, chu, pay="Chuyển khoản", ds=False):
     rows = [("Đơn vị đề nghị", "Khoa Mẫu", "h"), ("Nội dung", noidung, "h"), ("Số tiền bằng số", so_tien, "h"), ("Số tiền bằng chữ", chu, "h"), ("Hình thức thanh toán", pay, "h")]
     if pay == "Chuyển khoản":
-        rows.append(("Tài khoản thụ hưởng", "9990001230001, Ngân hàng Mẫu, chủ tài khoản: nhà cung cấp ghi trên hóa đơn (số bịa)", "h"))
+        rows.append(("Tài khoản thụ hưởng", "theo danh sách thanh toán chuyển khoản (Mẫu 09) đính kèm" if ds else "9990001230001, Ngân hàng Mẫu, chủ tài khoản: nhà cung cấp ghi trên hóa đơn (số bịa)", "h"))
     return cv("GIẤY ĐỀ NGHỊ THANH TOÁN", rows=rows, lines=["Trường Đại học Thăng Long", "Mẫu số 05 - TT"], sigs=[("Người đề nghị", True, False), ("Trưởng đơn vị", True, False), ("Kế toán trưởng", True, False), ("Hiệu trưởng", True, True)])
 
 
@@ -467,7 +467,7 @@ def _():
 def _():
     nd = "Chi học bổng khuyến khích học tập kỳ 1 năm học 2026-2027"
     return ("Loại nghiệp vụ: học bổng. Ngày xét: 15/10/2026. Kiểm giúp luôn mức học bổng tối đa mỗi sinh viên theo quy chế xem có vượt không.", [
-        dntt_chung(nd, "9.000.000", "Chín triệu đồng"),
+        dntt_chung(nd, "9.000.000", "Chín triệu đồng", ds=True),
         ds_ck09("9.000.000", [["1", "Sinh viên Mẫu A", "4.500.000"], ["2", "Sinh viên Mẫu B", "4.500.000"]]),
         to_trinh_chung(nd, "9.000.000"),
         py_chung(nd),
@@ -562,7 +562,7 @@ def _():
 @case("td-001")
 def _():
     return ("Loại nghiệp vụ: tuyển dụng. Ngày xét: 18/06/2026.", [
-        dntt_chung("Chi phí chấm thi và hướng dẫn kỳ tuyển dụng giảng viên đợt 1/2026", "4.000.000", "Bốn triệu đồng"),
+        dntt_chung("Chi phí chấm thi và hướng dẫn kỳ tuyển dụng giảng viên đợt 1/2026", "4.000.000", "Bốn triệu đồng", ds=True),
         ds_ck09("4.000.000", [["1", "Nguyễn Văn Mẫu", "2.000.000"], ["2", "Trần Thị Thử", "2.000.000"]]),
         cv("BẢNG THANH TOÁN TIỀN CHẤM THI VÀ HƯỚNG DẪN", table=dict(head=["STT", "Nội dung", "Số tiền (đ)"], rows=[["1", "Chấm thi vòng 1", "2.000.000"], ["2", "Hướng dẫn thi vòng 2", "2.000.000"], ["", "Tổng", "4.000.000"]], w=[50, 450, 194])),
     ])

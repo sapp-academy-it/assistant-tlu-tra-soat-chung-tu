@@ -10,7 +10,7 @@ Chép đúng giá trị trên ảnh. `KHÔNG ĐỌC ĐƯỢC` là câu trả l�
 - Số tiền bằng số: 4.000.000
 - Số tiền bằng chữ: Bốn triệu đồng
 - Hình thức thanh toán: Chuyển khoản
-- Tài khoản thụ hưởng: 9990001230001, Ngân hàng Mẫu, chủ tài khoản: nhà cung cấp ghi trên hóa đơn (số bịa)
+- Tài khoản thụ hưởng: theo danh sách thanh toán chuyển khoản (Mẫu 09) đính kèm
 - chữ ký Người đề nghị: có; dấu: không
 - chữ ký Trưởng đơn vị: có; dấu: không
 - chữ ký Kế toán trưởng: có; dấu: không
