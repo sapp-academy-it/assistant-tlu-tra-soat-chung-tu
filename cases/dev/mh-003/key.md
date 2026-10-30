@@ -10,5 +10,5 @@ Kết luận mong đợi: `KHONG_HOP_LE` (quy tắc B7: 1).
 
 ## Mục kiểm mong đợi
 
-- B5i: sai (quá niên độ, không thuộc ngoại lệ nào)
-- Các mục khác OK
+- B5i: sai (quá niên độ, không thuộc ngoại lệ nào) (đầu vào: tr.5, tr.6; de-bai.md (ngày xét))
+- Các mục khác OK (đầu vào: tr.1 đến tr.6)

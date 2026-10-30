@@ -11,7 +11,7 @@ Kết luận mong đợi: `CAN_BO_SUNG` (quy tắc B7: 2).
 
 ## Mục kiểm mong đợi
 
-- Loại: đề tài NCKH
-- Quyết định hội đồng bảo vệ đề cương: tùy trường hợp, không bắt buộc (Q1)
+- Loại: đề tài NCKH (đầu vào: tr.2, tr.3)
+- Quyết định hội đồng bảo vệ đề cương: tùy trường hợp, không bắt buộc (Q1) (đầu vào: tr.1 đến tr.7)
 
-F2 có thể bị đánh giá 'đúng nhưng key sót' nếu chuyên gia coi biên bản thanh lý đủ (Q1); F1 là phát hiện bắt buộc của key.
+F2 phụ thuộc Q1: nếu chuyên gia coi biên bản thanh lý thay được biên bản họp nghiệm thu thì bỏ F2 khỏi key trước khi ký. F1 là phát hiện bắt buộc.

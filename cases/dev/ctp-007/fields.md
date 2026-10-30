@@ -38,7 +38,7 @@ Chép đúng giá trị trên ảnh. `KHÔNG ĐỌC ĐƯỢC` là câu trả l�
 - bảng: Khoản | Diễn giải | Thành tiền (đ)
   - 1 | Phụ cấp lưu trú 3 ngày x 300.000 | 900.000
   - 2 | Thuê phòng đơn 2 đêm | 1.200.000
-  - 3 | Vé máy bay khứ hồi | 3.000.000
+  - 3 | Vé máy bay khứ hồi | 4.000.000
   - 4 | Phát sinh dự phòng | 900.000
   -  | Tổng dự trù | 7.000.000
 - chữ ký Người đề xuất: có; dấu: không

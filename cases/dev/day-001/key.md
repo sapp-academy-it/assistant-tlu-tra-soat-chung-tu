@@ -10,7 +10,7 @@ Kết luận mong đợi: `CAN_BO_SUNG` (quy tắc B7: 2).
 
 ## Mục kiểm mong đợi
 
-- Loại: tiền dạy (bảng kê chi tiết tiền dạy cuối kỳ)
-- B5a: lệch 500.000 đ giữa danh sách chuyển khoản và bảng kê
-- Số tiết x đơn giá khớp bảng kê (40 x 150.000 = 6.000.000; 30 x 150.000 = 4.500.000)
-- Các dòng tùy trường hợp (quyết định hội đồng, hợp đồng cộng tác viên...): không áp dụng hoặc cảnh báo Q1
+- Loại: tiền dạy (bảng kê chi tiết tiền dạy cuối kỳ) (đầu vào: tr.1)
+- B5a: lệch 500.000 đ giữa danh sách chuyển khoản và bảng kê (đầu vào: tr.1, tr.2, tr.3, tr.5)
+- Số tiết x đơn giá khớp bảng kê (40 x 150.000 = 6.000.000; 30 x 150.000 = 4.500.000) (đầu vào: tr.2)
+- Các dòng tùy trường hợp (quyết định hội đồng, hợp đồng cộng tác viên...): không áp dụng hoặc cảnh báo Q1 (đầu vào: tr.1 đến tr.5)

@@ -85,14 +85,14 @@ Chép đúng giá trị trên ảnh. `KHÔNG ĐỌC ĐƯỢC` là câu trả l�
 ## Trang 8: HÓA ĐƠN GIÁ TRỊ GIA TĂNG (bản chụp mờ)
 - (đầu trang) (Bản thể hiện của hóa đơn điện tử)
 - (đầu trang) Ký hiệu 1C26TAA - Số 000977 - Ngày 10/09/2026
-- Đơn vị bán hàng: Hãng hàng không Mẫu
-- Tên đơn vị mua: Trường Đại học Thăng Long
-- Mã số thuế: 0101825712
-- Địa chỉ: Đường Nghiêm Xuân Yêm, Phường Định Công, Thành phố Hà Nội
-- Hình thức thanh toán: Chuyển khoản
+- Đơn vị bán hàng: KHÔNG ĐỌC ĐƯỢC (giá trị gốc: Hãng hàng không Mẫu)
+- Tên đơn vị mua: KHÔNG ĐỌC ĐƯỢC (giá trị gốc: Trường Đại học Thăng Long)
+- Mã số thuế: KHÔNG ĐỌC ĐƯỢC (giá trị gốc: 0101825712)
+- Địa chỉ: KHÔNG ĐỌC ĐƯỢC (giá trị gốc: Đường Nghiêm Xuân Yêm, Phường Định Công, Thành phố Hà Nội)
+- Hình thức thanh toán: KHÔNG ĐỌC ĐƯỢC (giá trị gốc: Chuyển khoản)
 - bảng: STT | Tên hàng hóa, dịch vụ | Thành tiền (đ)
-  - 1 | Vé máy bay khứ hồi HAN-DAD-HAN (hạng phổ thông) | 2.400.000
-  -  | Cộng tiền hàng (đã gồm thuế GTGT) | 2.400.000
+  - 1 | Vé máy bay khứ hồi HAN-DAD-HAN (hạng phổ thông) | KHÔNG ĐỌC ĐƯỢC (giá trị gốc: 2.400.000)
+  -  | Cộng tiền hàng (đã gồm thuế GTGT) | KHÔNG ĐỌC ĐƯỢC (giá trị gốc: 2.400.000)
 - chữ ký Người bán hàng: có; dấu: không
 
 ## Trang 9: BOARDING PASS - HÀ NỘI / ĐÀ NẴNG và ĐÀ NẴNG / HÀ NỘI

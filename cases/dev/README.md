@@ -5,7 +5,7 @@ the next version starts; it is never used to score again.
 
 ## Các case của phiên bản 1 (hư cấu hoàn toàn)
 
-Mỗi case là một thư mục `<mã>/` theo hình dạng case của spec: `input/` (ảnh các trang `trang-NN.png`), `de-bai.md`, `fields.md`, `key.md`. `gen_cases.py` dựng `input/`, `de-bai.md` và `fields.md` từ dữ liệu bịa (cần Pillow); `key.md` viết tay. Người và số liệu đều bịa; mã số thuế và địa chỉ của Trường trên hóa đơn là thông tin pháp nhân ở quy trình 5.2b; các số căn cước, điện thoại, tài khoản ghi "số bịa".
+Mỗi case là một thư mục `<mã>/` theo hình dạng case của spec: `input/` (ảnh các trang `trang-NN.png`), `de-bai.md`, `fields.md`, `key.md`. `gen_cases.py` dựng `input/`, `de-bai.md` và `fields.md` từ dữ liệu bịa (cần Pillow); `key.md` viết tay. Người và số liệu đều bịa; mã số thuế và địa chỉ của Trường trên hóa đơn là thông tin pháp nhân ở quy trình 5.2b; các số căn cước, mã số thuế cá nhân, điện thoại ở giấy đề nghị ghi "số bịa"; số tài khoản ở danh sách chuyển khoản và đề nghị là số bịa theo mẫu 99900012xx (không ghi chú từng chỗ).
 
 | Case | Loại | Kết luận mong đợi | Thử |
 |---|---|---|---|

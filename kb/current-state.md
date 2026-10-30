@@ -15,4 +15,4 @@ Chỉ ghi trạng thái hiện hành, viết đè khi repo đổi. Không lịch
 ## Chưa có / đang tắt
 
 - Chưa có tag phiên bản, chưa có `cases/test-v1`, chưa có điểm chấm.
-- Bốn câu hỏi mở cho chuyên gia nghiệp vụ còn mở, ghi trong spec.
+- Năm câu hỏi mở cho chuyên gia nghiệp vụ (Q1 đến Q5) còn mở, ghi trong spec; hai chỗ bản xây khác chữ spec ghi ở `kb/decisions/2026-10-30-quyet-dinh-xay-phien-ban-1.md`.

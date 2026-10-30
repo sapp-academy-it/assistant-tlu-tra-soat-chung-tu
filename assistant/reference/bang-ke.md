@@ -1,6 +1,6 @@
 # Bảng kê chứng từ gửi P.TCKT, theo loại hồ sơ
 
-Nguồn: file Checklist_Mau_12_BKCT_TCKT (mỗi sheet một loại); trong file mọi dòng đều đánh `x`, cột Có và Nợ để trống, nên chưa nói chứng từ nào bắt buộc (câu hỏi mở Q1). Mã nguồn dùng trong báo cáo: "bảng kê <tên sheet>, dòng <tên chứng từ>". File có 10 sheet; spec nói 12 loại: hai loại còn lại chưa có sheet, dùng Phụ lục 01 của quy trình (`quy-dinh.md`) và ghi vào phần không kiểm tra được.
+Nguồn: bảng kê chứng từ gửi P.TCKT, 12 loại hồ sơ (xlsx, sha256 bắt đầu `ff0d1d6d`) (file Checklist_Mau_12_BKCT_TCKT; mỗi sheet một loại); trong file mọi dòng đều đánh `x`, cột Có và Nợ để trống, nên chưa nói chứng từ nào bắt buộc (câu hỏi mở Q1). Mã nguồn dùng trong báo cáo: "bảng kê <tên sheet>, dòng <tên chứng từ>". File có 10 sheet; spec nói 12 loại (xem mục "Loại chưa có sheet" ở cuối).
 
 ## Quy tắc tạm thời cho Q1 (đến khi chuyên gia ký key)
 
@@ -27,7 +27,7 @@ Hai loại ngang nhau hoặc không có chứng từ đặc trưng: hỏi ngư�
 
 ## Danh sách theo loại
 
-Chứng từ chung mọi loại (trừ khi nói khác): Giấy đề nghị thanh toán (Mẫu 05-TT); Giấy đề xuất, tờ trình, dự trù; Phiếu ý kiến của P.TCKT; Hóa đơn tài chính.
+Danh sách `Cốt lõi` của từng loại dưới đây là đầy đủ: không cộng thêm chứng từ nào từ loại khác hay từ danh sách chung. Loại nào không ghi giấy đề nghị thanh toán, tờ trình, phiếu ý kiến P.TCKT hay hóa đơn thì không đòi các chứng từ đó (ví dụ tiền dạy, đề tài, sách, tuyển dụng).
 
 ### Công tác phí (TT CTP)
 Cốt lõi: đề nghị thanh toán; quyết định cử đi công tác; giấy đề xuất, tờ trình, dự trù; phiếu ý kiến P.TCKT; giấy đi đường; hóa đơn tài chính hoặc chứng từ hợp pháp cho đi lại và lưu trú (lưu trú theo mức khoán thì không cần hóa đơn).
@@ -66,3 +66,7 @@ Tùy trường hợp: hợp đồng; báo giá; biên bản bàn giao và nghi�
 
 ### Tuyển dụng (Tuyển dụng)
 Cốt lõi: giấy đề nghị thanh toán; danh sách chuyển khoản; bảng thanh toán tiền chấm thi và hướng dẫn; quyết định tuyển dụng.
+
+## Loại chưa có sheet
+
+Phụ lục 01 của quy trình (`quy-dinh.md`) còn nghiệp vụ không có sheet trong bảng kê, ví dụ quảng cáo trên nền tảng mạng xã hội, hoạt động tổ chức sự kiện, học phần thực hành hoặc mô hình thực hành cho sinh viên, tiền nhân công thuê khoán. Nhận diện: bộ có chứng từ đặc trưng của các nghiệp vụ đó (bảng phân bổ chi phí quảng cáo; bảng tổng hợp quyết toán chương trình hoặc sự kiện; định mức nguyên vật liệu, nhân công cho thực hành; hợp đồng giao khoán) và không khớp rõ với 10 loại ở trên. Với loại này không có bảng kê để đối chiếu nên B3 là `không kiểm tra được`, kết luận tối đa `CAN_BO_SUNG`, không bao giờ `DU_DIEU_KIEN`; B4 đến B6 vẫn làm. Hai loại còn lại trong "12 loại" của spec chưa xác định (nguồn không nêu).

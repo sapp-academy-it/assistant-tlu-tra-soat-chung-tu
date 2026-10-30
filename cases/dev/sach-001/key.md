@@ -10,5 +10,5 @@ Kết luận mong đợi: `CAN_BO_SUNG` (quy tắc B7: 2).
 
 ## Mục kiểm mong đợi
 
-- Loại: sách, giáo trình (quyết định giao nhiệm vụ biên soạn, hợp đồng biên soạn)
-- Các dòng cốt lõi khác có: danh sách chuyển khoản 09, quyết định giao nhiệm vụ, đề cương, hợp đồng, giấy chứng nhận nộp sản phẩm, biên bản nghiệm thu thanh lý, hóa đơn
+- Loại: sách, giáo trình (quyết định giao nhiệm vụ biên soạn, hợp đồng biên soạn) (đầu vào: tr.2, tr.4)
+- Các dòng cốt lõi khác có: danh sách chuyển khoản 09, quyết định giao nhiệm vụ, đề cương, hợp đồng, giấy chứng nhận nộp sản phẩm, biên bản nghiệm thu thanh lý, hóa đơn (đầu vào: tr.1 đến tr.7)

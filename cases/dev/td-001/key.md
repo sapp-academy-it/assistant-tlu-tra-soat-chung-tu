@@ -10,5 +10,5 @@ Kết luận mong đợi: `CAN_BO_SUNG` (quy tắc B7: 2).
 
 ## Mục kiểm mong đợi
 
-- Loại: tuyển dụng
-- B5a: 4.000.000 khớp ở đề nghị, danh sách chuyển khoản, bảng thanh toán
+- Loại: tuyển dụng (đầu vào: tr.3)
+- B5a: 4.000.000 khớp ở đề nghị, danh sách chuyển khoản, bảng thanh toán (đầu vào: tr.1, tr.2, tr.3)

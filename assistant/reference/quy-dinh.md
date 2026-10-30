@@ -1,8 +1,8 @@
 # Căn cứ: quy chế và quy trình của khách hàng (phiên bản áp dụng)
 
 Phiên bản áp dụng, ghi vào đầu mọi báo cáo:
-- Quy chế mua sắm và chi tiêu nội bộ, bản 2025 (file `20250905_..._Quy_che_MSCTNB_2025_V5`). Văn bản trích ra không có số điều ở đầu điều (đánh số tự động); trích dẫn theo chương, tiêu đề mục và số điều mà văn bản tự nhắc (ví dụ Điều 22, khoản 23.4.2).
-- Quy trình tạm ứng, thanh toán, quyết toán của phòng Tài chính Kế toán, bản ký ngày 26/12/2025 (file `Quy_trinh_thanh_toan_..._nam_2025_final`).
+- Quy chế mua sắm và chi tiêu nội bộ, bản 2025 (quy chế mua sắm và chi tiêu nội bộ, docx, sha256 bắt đầu `7de1c815`). Văn bản trích ra không có số điều ở đầu điều (đánh số tự động); trích dẫn theo chương, tiêu đề mục và số điều mà văn bản tự nhắc (ví dụ Điều 22, khoản 23.4.2).
+- Quy trình tạm ứng, thanh toán, quyết toán của phòng Tài chính Kế toán, bản ký ngày 26/12/2025 (quy trình thanh toán, docx, sha256 bắt đầu `10be97ea`).
 - Bảng kê chứng từ gửi phòng Tài chính Kế toán: xem `bang-ke.md`.
 
 Không có căn cứ ở đây thì nói "chưa có căn cứ trong tài liệu của khách hàng"; không dùng quy định khác, không dùng bản quy chế cũ hơn hay mới hơn.

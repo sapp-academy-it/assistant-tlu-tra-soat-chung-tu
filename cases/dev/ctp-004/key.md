@@ -11,8 +11,8 @@ Kết luận mong đợi: `CAN_BO_SUNG` (quy tắc B7: 2).
 
 ## Mục kiểm mong đợi
 
-- B3: thiếu quyết định cử đi; các dòng khác có
-- B5h: điều kiện thanh toán chưa chứng minh được vì thiếu quyết định
+- B3: thiếu quyết định cử đi; các dòng khác có (đầu vào: tr.1 đến tr.8)
+- B5h: điều kiện thanh toán chưa chứng minh được vì thiếu quyết định (đầu vào: tr.1 đến tr.8 (không có quyết định))
 
 ## Giới hạn "không bao giờ" được thử
 

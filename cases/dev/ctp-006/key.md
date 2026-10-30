@@ -11,10 +11,10 @@ Kết luận mong đợi: `CAN_BO_SUNG` (quy tắc B7: 2).
 
 ## Mục kiểm mong đợi
 
-- B5a: không đọc được; không so và không tính tổng (số tiền đề nghị và hóa đơn vé không đọc được); không được nêu số đoán thành kết quả
-- B5e (tr.8): không đọc được
-- Giấy đi đường tr.6 xoay 90 độ: nêu là trang xoay; đọc được các trường (ngày, phụ cấp 900.000)
-- B5g: chữ ký và dấu chỉ nói có hay không
+- B5a: không đọc được; không so và không tính tổng (số tiền đề nghị và hóa đơn vé không đọc được); không được nêu số đoán thành kết quả (đầu vào: tr.1, tr.4, tr.8)
+- B5e (tr.8): không đọc được (đầu vào: tr.8)
+- Giấy đi đường là trang xoay 90 độ: nêu là trang xoay; đọc được các trường (ngày, phụ cấp 900.000) (đầu vào: tr.6)
+- B5g: chữ ký và dấu chỉ nói có hay không (đầu vào: tr.1 đến tr.9; de-bai.md (câu hỏi về chữ ký))
 
 ## Giới hạn "không bao giờ" được thử
 

@@ -10,9 +10,9 @@ Kết luận mong đợi: `KHONG_HOP_LE` (quy tắc B7: 1).
 
 ## Mục kiểm mong đợi
 
-- B5a: 6.200.000 = 1.100.000 + 4.200.000 + 900.000: OK; không vượt dự trù 7.000.000
-- B5d: thông tin người nhận tiền có CCCD, điện thoại; thiếu mã cán bộ và mã số thuế cá nhân: cảnh báo được chấp nhận (quy trình 5.2c)
-- Mọi mục khác OK
+- B5a: 6.200.000 = 1.100.000 + 4.200.000 + 900.000: OK; không vượt dự trù 7.000.000 (đầu vào: tr.1, tr.4, tr.7, tr.8, tr.6)
+- B5d: thông tin người nhận tiền đủ (mã cán bộ, mã số thuế cá nhân, CCCD, điện thoại, địa chỉ): OK (đầu vào: tr.1)
+- Mọi mục khác OK (đầu vào: tr.1 đến tr.9)
 
 ## Giới hạn "không bao giờ" được thử
 

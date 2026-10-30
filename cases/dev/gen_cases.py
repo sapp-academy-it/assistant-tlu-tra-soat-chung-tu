@@ -12,13 +12,17 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 W, H = 794, 1123
-FD = "/usr/share/fonts/TTF/"
+# Thư mục font: biến môi trường CASES_FONT_DIR (có DejaVuSans.ttf, DejaVuSans-Bold.ttf) và CASES_HAND_FONT (tệp chữ nghiêng làm chữ viết tay).
+_CAND = [os.environ.get("CASES_FONT_DIR", ""), "/usr/share/fonts/TTF", "/usr/share/fonts/truetype/dejavu", "/usr/share/fonts/dejavu"]
+FD = next((d.rstrip("/") + "/" for d in _CAND if d and os.path.exists(os.path.join(d, "DejaVuSans.ttf"))), "/usr/share/fonts/TTF/")
+_HAND = [os.environ.get("CASES_HAND_FONT", ""), "/usr/share/fonts/noto/NotoSerif-Italic.ttf", FD + "DejaVuSerif-Italic.ttf"]
+HAND = next((p for p in _HAND if p and os.path.exists(p)), FD + "DejaVuSerif-Italic.ttf")
 F = {
     "n": ImageFont.truetype(FD + "DejaVuSans.ttf", 15),
     "b": ImageFont.truetype(FD + "DejaVuSans-Bold.ttf", 15),
     "t": ImageFont.truetype(FD + "DejaVuSans-Bold.ttf", 21),
     "s": ImageFont.truetype(FD + "DejaVuSans.ttf", 13),
-    "h": ImageFont.truetype("/usr/share/fonts/noto/NotoSerif-Italic.ttf", 19),
+    "h": ImageFont.truetype(HAND, 19),
 }
 
 TRUONG = ("Trường Đại học Thăng Long", "0101825712", "Đường Nghiêm Xuân Yêm, Phường Định Công, Thành phố Hà Nội")
@@ -141,8 +145,9 @@ def fields_md(case_id, pages):
         out.append("## Trang %d: %s%s" % (i, sp["title"], extra))
         for ln in sp.get("lines", []):
             out.append("- (đầu trang) %s" % ln)
+        blurred = bool(sp.get("blur"))
         for label, val, mode in sp.get("rows", []):
-            if mode == "x":
+            if mode == "x" or (blurred and val):
                 out.append("- %s: KHÔNG ĐỌC ĐƯỢC (giá trị gốc: %s)" % (label, val))
             else:
                 out.append("- %s: %s" % (label, val))
@@ -152,7 +157,10 @@ def fields_md(case_id, pages):
         if tb:
             out.append("- bảng: " + " | ".join(tb["head"]))
             for r in tb["rows"]:
-                out.append("  - " + " | ".join(str(c) for c in r))
+                cells = [str(c) for c in r]
+                if blurred and cells[-1]:
+                    cells[-1] = "KHÔNG ĐỌC ĐƯỢC (giá trị gốc: %s)" % cells[-1]
+                out.append("  - " + " | ".join(cells))
         for role, signed, stamped in sp.get("sigs", []):
             out.append("- chữ ký %s: %s; dấu: %s" % (role, "có" if signed else "không", "có" if stamped else "không"))
         out.append("")
@@ -241,12 +249,12 @@ def quyet_dinh(ngay_di="16/09/2026", ngay_ve="18/09/2026", **kw):
     return sp
 
 
-def to_trinh(tong="6.000.000", **kw):
+def to_trinh(tong="6.000.000", ve="3.000.000", **kw):
     sp = dict(
         lines=["Trường Đại học Thăng Long - Khoa Công nghệ thông tin"],
         title="TỜ TRÌNH XIN CỬ ĐI CÔNG TÁC VÀ DỰ TRÙ KINH PHÍ",
         body=["Kính trình Ban Giám hiệu cho ông Nguyễn Văn Mẫu đi công tác Đà Nẵng 03 ngày 02 đêm (16-18/09/2026) để dự hội thảo. Kế hoạch chi dự trù:"],
-        table=dict(head=["Khoản", "Diễn giải", "Thành tiền (đ)"], rows=[["1", "Phụ cấp lưu trú 3 ngày x 300.000", "900.000"], ["2", "Thuê phòng đơn 2 đêm", "1.200.000"], ["3", "Vé máy bay khứ hồi", "3.000.000"], ["4", "Phát sinh dự phòng", "900.000"], ["", "Tổng dự trù", tong]], w=[50, 450, 194]),
+        table=dict(head=["Khoản", "Diễn giải", "Thành tiền (đ)"], rows=[["1", "Phụ cấp lưu trú 3 ngày x 300.000", "900.000"], ["2", "Thuê phòng đơn 2 đêm", "1.200.000"], ["3", "Vé máy bay khứ hồi", ve], ["4", "Phát sinh dự phòng", "900.000"], ["", "Tổng dự trù", tong]], w=[50, 450, 194]),
         sigs=[("Người đề xuất", True, False), ("Trưởng đơn vị", True, False), ("Ban Giám hiệu", True, True)],
     )
     sp.update(kw)
@@ -371,7 +379,7 @@ def _():
     p = ctp_set(
         dn=de_nghi_tt("6.200.000", "Sáu triệu hai trăm nghìn đồng", "25/09/2026", pay="Tiền mặt", extra_rows=[("Người nhận tiền", "Nguyễn Văn Mẫu, mã cán bộ CB0001", "h"), ("Mã số thuế cá nhân, số CCCD", "8000000001 ; 012345678901 (số bịa)", "h"), ("Điện thoại liên hệ", "0900000000 (số bịa)", "h"), ("Địa chỉ cư trú", "Số 5, ngõ 7, phố Mẫu, Hà Nội (bịa)", "h")]),
         hd_ve=hoa_don("000977", "10/09/2026", "Hãng hàng không Mẫu", "Vé máy bay khứ hồi HAN-DAD-HAN (hạng phổ thông)", "4.200.000"),
-        tt=to_trinh(tong="7.000.000"),
+        tt=to_trinh(tong="7.000.000", ve="4.000.000"),
     )
     return ("Loại nghiệp vụ: công tác phí. Ngày xét: 25/09/2026. Đề nghị thanh toán chọn tiền mặt.", p)
 

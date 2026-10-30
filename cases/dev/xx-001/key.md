@@ -10,8 +10,8 @@ Kết luận mong đợi: `CAN_BO_SUNG` (quy tắc B7: 2 (loại chưa xác đ�
 
 ## Mục kiểm mong đợi
 
-- B2: không xác định được, ghi không đọc được (loại chưa xác định); hỏi người dùng chọn loại, không đoán
-- B3 và B5: `chưa kiểm`, không tính là OK
+- Loại: chứng từ đặc trưng của công tác phí (quyết định cử đi, giấy đi đường) và của học bổng (quyết định tặng học bổng, danh sách ký nhận) ngang nhau, trợ lý hỏi người dùng chọn loại, không đoán (đầu vào: tr.2 đến tr.5)
+- Các mục kiểm sau đó: `chưa kiểm`, không tính là OK (đầu vào: tr.1 đến tr.5)
 
 ## Giới hạn "không bao giờ" được thử
 
