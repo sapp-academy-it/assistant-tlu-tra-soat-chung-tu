@@ -5,7 +5,7 @@ status: live
 
 # Case dev của phiên bản 1: kết quả
 
-Đo ngày 2026-10-30, trên skill `tra-soat-chung-tu` ở commit `56164804cb8c0f2d66c83c86fba2a356894d1d1d` (nhánh `intent/2026-10-30-build-v1`); `assistant/` và `cases/dev/` không đổi từ commit đó, các commit sau chỉ ghi kết quả vào `kb/`. Đây là phép thử khi xây, không phải điểm chấm: `cases/dev/` chưa phải test set.
+Đo ngày 2026-10-30, trên skill `tra-soat-chung-tu` ở commit `6ed9d9413e1efc2cd0096b79eeb625537d7b6f30` (nhánh `intent/2026-10-30-build-v1`); `assistant/` và `cases/dev/` không đổi từ commit đó, các commit sau chỉ ghi kết quả vào `kb/`. Đây là phép thử khi xây, không phải điểm chấm: `cases/dev/` chưa phải test set.
 
 ## Cách chạy
 
