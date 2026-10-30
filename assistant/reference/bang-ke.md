@@ -1,6 +1,6 @@
 # Bảng kê chứng từ gửi P.TCKT, theo loại hồ sơ
 
-Nguồn: bảng kê chứng từ gửi P.TCKT, 12 loại hồ sơ (xlsx, sha256 bắt đầu `ff0d1d6d`) (file Checklist_Mau_12_BKCT_TCKT; mỗi sheet một loại); trong file mọi dòng đều đánh `x`, cột Có và Nợ để trống, nên chưa nói chứng từ nào bắt buộc (câu hỏi mở Q1). Mã nguồn dùng trong báo cáo: "bảng kê <tên sheet>, dòng <tên chứng từ>". File có 10 sheet; spec nói 12 loại (xem mục "Loại chưa có sheet" ở cuối).
+Nguồn: bảng kê chứng từ gửi P.TCKT, 12 loại hồ sơ (xlsx, sha256 bắt đầu `ff0d1d6d`) (mỗi sheet một loại); trong file mọi dòng đều đánh `x`, cột Có và Nợ để trống, nên chưa nói chứng từ nào bắt buộc (câu hỏi mở Q1). Mã nguồn dùng trong báo cáo: "bảng kê <tên sheet>, dòng <tên chứng từ>". File có 10 sheet; spec nói 12 loại (xem mục "Loại chưa có sheet" ở cuối).
 
 ## Quy tắc tạm thời cho Q1 (đến khi chuyên gia ký key)
 
@@ -69,4 +69,4 @@ Cốt lõi: giấy đề nghị thanh toán; danh sách chuyển khoản; bảng
 
 ## Loại chưa có sheet
 
-Phụ lục 01 của quy trình (`quy-dinh.md`) còn nghiệp vụ không có sheet trong bảng kê, ví dụ quảng cáo trên nền tảng mạng xã hội, hoạt động tổ chức sự kiện, học phần thực hành hoặc mô hình thực hành cho sinh viên, tiền nhân công thuê khoán. Nhận diện: bộ có chứng từ đặc trưng của các nghiệp vụ đó (bảng phân bổ chi phí quảng cáo; bảng tổng hợp quyết toán chương trình hoặc sự kiện; định mức nguyên vật liệu, nhân công cho thực hành; hợp đồng giao khoán) và không khớp rõ với 10 loại ở trên. Với loại này không có bảng kê để đối chiếu nên B3 là `không kiểm tra được`, kết luận tối đa `CAN_BO_SUNG`, không bao giờ `DU_DIEU_KIEN`; B4 đến B6 vẫn làm. Hai loại còn lại trong "12 loại" của spec chưa xác định (nguồn không nêu).
+Phụ lục 01 của quy trình (tóm tắt ở `quy-dinh.md`, mục Phụ lục 01) còn nghiệp vụ không có sheet trong bảng kê, ví dụ quảng cáo trên nền tảng mạng xã hội, hoạt động tổ chức sự kiện, học phần thực hành hoặc mô hình thực hành cho sinh viên, tiền nhân công thuê khoán. Nhận diện: bộ có chứng từ đặc trưng của các nghiệp vụ đó (bảng phân bổ chi phí quảng cáo; bảng tổng hợp quyết toán sự kiện; định mức nguyên vật liệu, nhân công cho thực hành; hợp đồng giao khoán) và không khớp rõ với 10 loại ở trên. Khớp với bất kỳ sheet nào trong 10 loại luôn thắng đường này (ví dụ bộ có quyết toán chương trình, hoặc quyết định tổ chức hội thảo, thuộc QT CT hay Hội nghị hội thảo, không thuộc loại chưa có sheet). Với loại này không có bảng kê để đối chiếu nên B3 là `không kiểm tra được`, kết luận tối đa `CAN_BO_SUNG`, không bao giờ `DU_DIEU_KIEN`; B4 đến B6 vẫn làm. Hai loại còn lại trong "12 loại" của spec chưa xác định (nguồn không nêu).

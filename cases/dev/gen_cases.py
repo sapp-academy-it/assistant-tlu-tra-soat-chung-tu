@@ -144,7 +144,7 @@ def fields_md(case_id, pages):
             extra += " (bản chụp mờ)"
         out.append("## Trang %d: %s%s" % (i, sp["title"], extra))
         for ln in sp.get("lines", []):
-            out.append("- (đầu trang) %s" % ln)
+            out.append("- (đầu trang) %s" % ("KHÔNG ĐỌC ĐƯỢC (giá trị gốc: %s)" % ln if sp.get("blur") else ln))
         blurred = bool(sp.get("blur"))
         for label, val, mode in sp.get("rows", []):
             if mode == "x" or (blurred and val):
@@ -158,8 +158,8 @@ def fields_md(case_id, pages):
             out.append("- bảng: " + " | ".join(tb["head"]))
             for r in tb["rows"]:
                 cells = [str(c) for c in r]
-                if blurred and cells[-1]:
-                    cells[-1] = "KHÔNG ĐỌC ĐƯỢC (giá trị gốc: %s)" % cells[-1]
+                if blurred:
+                    cells = ["KHÔNG ĐỌC ĐƯỢC (giá trị gốc: %s)" % c if c else c for c in cells]
                 out.append("  - " + " | ".join(cells))
         for role, signed, stamped in sp.get("sigs", []):
             out.append("- chữ ký %s: %s; dấu: %s" % (role, "có" if signed else "không", "có" if stamped else "không"))

@@ -10,5 +10,5 @@ Kết luận mong đợi: `KHONG_HOP_LE` (quy tắc B7: 1).
 
 ## Mục kiểm mong đợi
 
-- B5f: gộp theo nhà cung cấp và ngày: tổng 6.000.000, tiền mặt: sai (đầu vào: tr.1, tr.6 đến tr.8)
-- B5a: 6.000.000 khớp (đầu vào: tr.1, tr.2, tr.6 đến tr.8)
+- B5f: gộp theo nhà cung cấp và ngày: tổng 6.000.000, tiền mặt: sai (nguồn: quy trình 5.1d)
+- B5a: 6.000.000 khớp (nguồn: quy trình 5.1c)

@@ -12,9 +12,9 @@ Kết luận mong đợi: `CAN_BO_SUNG` (quy tắc B7: 2).
 
 ## Mục kiểm mong đợi
 
-- B5a: tổng sai, lệch 100.000 đ; số bằng chữ khớp số bằng số; không vượt dự trù 6.000.000 (đầu vào: tr.1, tr.4, tr.6, tr.7, tr.8)
-- B5e: hóa đơn phòng sai; hóa đơn vé OK (đầu vào: tr.7, tr.8)
-- Trường cố ý khó đọc: ngày ký trưởng đơn vị trên tr.6, đáp án đúng là KHÔNG ĐỌC ĐƯỢC (đầu vào: tr.6)
+- B5a: tổng sai, lệch 100.000 đ; số bằng chữ khớp số bằng số; không vượt dự trù 6.000.000 (nguồn: quy trình 5.1c)
+- B5e: hóa đơn phòng sai; hóa đơn vé OK (nguồn: quy trình 5.2b)
+- Trường cố ý khó đọc: ngày ký trưởng đơn vị trên tr.6, đáp án đúng là KHÔNG ĐỌC ĐƯỢC (nguồn: quy trình 5.2)
 
 ## Giới hạn "không bao giờ" được thử
 

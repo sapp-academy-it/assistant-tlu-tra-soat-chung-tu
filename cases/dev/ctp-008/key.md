@@ -10,7 +10,7 @@ Kết luận mong đợi: `KHONG_HOP_LE` (quy tắc B7: 1).
 
 ## Mục kiểm mong đợi
 
-- B5c: ngày đi, về khớp; thời hạn nộp: sai (quá hạn) (đầu vào: tr.1, tr.2, tr.3, tr.6, tr.7, tr.9; de-bai.md (ngày nộp))
-- Các mục khác OK (hóa đơn vé lập 28/07/2026, trước chuyến đi) (đầu vào: tr.8)
+- B5c: ngày đi, về khớp; thời hạn nộp: sai (quá hạn) (nguồn: quy chế Chương VI, Điều 22 (thời hạn thanh toán))
+- Các mục khác OK (hóa đơn vé lập 28/07/2026, trước chuyến đi) (nguồn: quy trình 5.1e)
 
 Đếm ngày nghỉ lễ chưa biết: kết luận quá hạn vẫn đúng vì quá hạn hơn 5 tuần.

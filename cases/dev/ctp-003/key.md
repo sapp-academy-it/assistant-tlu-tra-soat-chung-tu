@@ -10,6 +10,6 @@ Kết luận mong đợi: `KHONG_HOP_LE` (quy tắc B7: 1).
 
 ## Mục kiểm mong đợi
 
-- B5a: 5.100.000 = 1.800.000 + 2.400.000 + 900.000: OK; không vượt dự trù 6.500.000 (đầu vào: tr.1, tr.4, tr.6, tr.7, tr.8)
-- B5h: phụ cấp 3 ngày x 300.000: OK; phòng: sai (vượt) (đầu vào: tr.6, tr.7)
-- Các mục khác OK (đầu vào: tr.1 đến tr.9)
+- B5a: 5.100.000 = 1.800.000 + 2.400.000 + 900.000: OK; không vượt dự trù 6.000.000 (nguồn: quy trình 5.1b, 5.1c)
+- B5h: phụ cấp 3 ngày x 300.000: OK; phòng: sai (vượt) (nguồn: quy chế Chương VI, Điều 22 (định mức thuê phòng, phụ cấp))
+- Các mục khác OK (nguồn: quy trình 5.1c, 5.2b)

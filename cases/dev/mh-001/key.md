@@ -10,6 +10,6 @@ Kết luận mong đợi: `KHONG_HOP_LE` (quy tắc B7: 1).
 
 ## Mục kiểm mong đợi
 
-- Loại: mua hàng hóa, dịch vụ (báo giá, biên bản nghiệm thu, hóa đơn) (đầu vào: tr.4 đến tr.6)
-- Hợp đồng: khoản dưới 20 triệu đồng, không áp dụng (đầu vào: tr.1 đến tr.6)
-- B5a: 12.500.000 khớp ở tr.1, tr.2, tr.4, tr.6 (đầu vào: tr.1, tr.2, tr.4, tr.6)
+- Loại: mua hàng hóa, dịch vụ (báo giá, biên bản nghiệm thu, hóa đơn) (nguồn: bảng kê Mua hàng hóa dịch vụ)
+- Hợp đồng: khoản dưới 20 triệu đồng, không áp dụng (nguồn: quy trình Phụ lục 01 mục II (hợp đồng từ 20 triệu đồng))
+- B5a: 12.500.000 khớp ở tr.1, tr.2, tr.4, tr.6 (nguồn: quy trình 5.1c)

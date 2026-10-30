@@ -30,7 +30,7 @@ Lần chạy đầu có 5 case hợp lệ bị kết luận CAN_BO_SUNG (ctp-001
 
 ## Điều quan sát khi chạy
 
-- Phát hiện ngoài key ở lần chạy cuối: sach-001 và td-001 thêm một phát hiện chặn "thiếu thông tin người nhận tiền" trên danh sách mẫu 09 (quy trình 5.2c); key không có, vì danh mục trường bắt buộc của biểu mẫu là Q5. Kết luận không đổi (đã là `CAN_BO_SUNG`). Chuyên gia phán quyết khi chấm.
+- Phát hiện ngoài key ở lần chạy cuối: sach-001 và td-001 thêm một phát hiện chặn "thiếu thông tin người nhận tiền" trên danh sách mẫu 09 (quy trình 5.2c). Key sau vòng 2 theo quy tắc tạm của B5(d) (danh sách nhiều người nhận: chỉ cảnh báo, xem `2026-10-30-quyet-dinh-xay-phien-ban-1.md`, mục 3), nên phát hiện chặn đó là ngoài key; kết luận không đổi (đã là `CAN_BO_SUNG`). Chuyên gia phán quyết khi chấm.
 - Với ctp-007, trợ lý ghi cảnh báo thêm về chênh lệch giữa dự trù và hóa đơn vé; chấp nhận được (cảnh báo, không đổi kết luận).
 - Vài lần trợ lý viết nhầm "quy quy trình" thay cho "quy trình" ở cột nguồn; chưa ảnh hưởng nội dung.
 - Chưa đo độ chính xác đọc trường trên chứng từ thật; ảnh hư cấu dựng sạch hơn bản quét thật (xem "Giới hạn đã biết" của spec).

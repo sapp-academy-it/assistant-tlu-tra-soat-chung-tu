@@ -11,6 +11,6 @@ Kết luận mong đợi: `CAN_BO_SUNG` (quy tắc B7: 2).
 
 ## Mục kiểm mong đợi
 
-- Loại: thuê xe đưa sinh viên đi thực tế (bảng kê SV đi thực tập) (đầu vào: tr.2, tr.4)
-- B5a: 28.000.000 khớp ở đề nghị, tờ trình, hợp đồng, hóa đơn (đầu vào: tr.1, tr.2, tr.4, tr.5)
-- Hợp đồng từ 20 triệu đồng: có (tr.4); biên bản thanh lý: có (tr.6) (đầu vào: tr.4, tr.6)
+- Loại: thuê xe đưa sinh viên đi thực tế (bảng kê SV đi thực tập) (nguồn: bảng kê SV đi thực tập)
+- B5a: 28.000.000 khớp ở đề nghị, tờ trình, hợp đồng, hóa đơn (nguồn: quy trình 5.1c)
+- Hợp đồng từ 20 triệu đồng: có (tr.4); biên bản thanh lý: có (tr.6) (nguồn: quy trình Phụ lục 01 mục X (hợp đồng từ 20 triệu đồng))
