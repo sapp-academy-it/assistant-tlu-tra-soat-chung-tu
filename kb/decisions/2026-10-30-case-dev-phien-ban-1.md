@@ -24,6 +24,10 @@ Cả 20 case đạt: kết luận đúng key, mọi phát hiện chặn của ke
 | ctp-002, ctp-004, ctp-006, tt-001, day-001, nckh-001, sach-001, td-001, xx-001 | CAN_BO_SUNG | CAN_BO_SUNG | đạt |
 | ctp-003, ctp-007, ctp-008, mh-001, mh-002, mh-003 | KHONG_HOP_LE | KHONG_HOP_LE | đạt |
 
+## Case thêm sau vòng 3: qc-001
+
+qc-001 (quảng cáo mạng xã hội, loại chưa có sheet, có hóa đơn và biên bản nghiệm thu) thử đường "loại chưa có sheet" của B2, B3, B6, B7. Chạy một lần trên `assistant/` không đổi từ `6e469107e37d74b572afb495bf8d487bf6f7f11f`: kết luận `CAN_BO_SUNG`, B2 nhận ra loại bằng bảng phân bổ chi phí quảng cáo và không rơi vào mua hàng, B3 `không kiểm tra được`, một phát hiện chặn có nguồn: đạt. Tổng: 21 case đạt.
+
 ## Lần chạy đầu không đạt, vì case chưa đúng
 
 Lần chạy đầu có 5 case hợp lệ bị kết luận CAN_BO_SUNG (ctp-001, ctp-005, hb-001, hn-001, qt-001). Lý do nằm ở case, trợ lý đúng: đề nghị thanh toán hư cấu thiếu thông tin người nhận tiền (quy trình 5.2c), số tài khoản giữa đề nghị và danh sách chuyển khoản lệch nhau, hoặc danh sách thiếu tài khoản. Hai case khác có phát hiện thật ngoài key: ctp-003 (tổng dòng của tờ trình không bằng tổng ghi) và ctp-008 (nội dung đề nghị ghi chuyến đi khác ngày). Đã sửa dữ liệu của case rồi chạy lại.

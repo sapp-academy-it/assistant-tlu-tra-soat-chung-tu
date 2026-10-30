@@ -576,6 +576,19 @@ def _():
     ])
 
 
+@case("qc-001")
+def _():
+    nd = "Quảng cáo trên nền tảng mạng xã hội cho tuyển sinh, tháng 09/2026"
+    return ("Loại nghiệp vụ: chi quảng cáo tuyển sinh trên mạng xã hội. Ngày xét: 05/10/2026.", [
+        dntt_chung(nd, "8.000.000", "Tám triệu đồng"),
+        to_trinh_chung(nd, "8.000.000"),
+        py_chung(nd),
+        hoa_don("000207", "30/09/2026", "Công ty Quảng cáo Số Mẫu", "Dịch vụ quảng cáo trên các nền tảng mạng xã hội, tháng 09/2026", "8.000.000"),
+        cv("BẢNG PHÂN BỔ CHI PHÍ QUẢNG CÁO CỦA TỪNG NỀN TẢNG", table=dict(head=["STT", "Nền tảng", "Chi phí (đ)"], rows=[["1", "Nền tảng mạng xã hội A", "5.000.000"], ["2", "Nền tảng mạng xã hội B", "3.000.000"], ["", "Tổng", "8.000.000"]], w=[50, 450, 194])),
+        cv("BIÊN BẢN NGHIỆM THU DỊCH VỤ", body=["Hai bên xác nhận dịch vụ quảng cáo tháng 09/2026 đã hoàn thành, đạt yêu cầu."], sigs=[("Bên giao", True, True), ("Bên nhận", True, False)]),
+    ])
+
+
 @case("xx-001")
 def _():
     return ("Không nêu loại nghiệp vụ. Ngày xét: 01/09/2026.", [

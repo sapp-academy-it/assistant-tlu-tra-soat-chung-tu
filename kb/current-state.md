@@ -10,7 +10,7 @@ Chỉ ghi trạng thái hiện hành, viết đè khi repo đổi. Không lịch
 - Workflow đọc biến `CI_GATE_RUNNER`, rồi `CI_RUNNER`, dự phòng `ubuntu-latest`.
 - Mã cổng ở `.vibemaestro/gates/`.
 - `assistant/` có skill `tra-soat-chung-tu` bản 1 (tám bước B1 đến B8, 11 giới hạn, `reference/` ghi quy chế, quy trình, bảng kê) và `plugin.json`.
-- `cases/dev/` có 20 case hư cấu thử trên skill, kết quả ở `kb/decisions/2026-10-30-case-dev-phien-ban-1.md`.
+- `cases/dev/` có 21 case hư cấu thử trên skill, kết quả ở `kb/decisions/2026-10-30-case-dev-phien-ban-1.md`.
 
 ## Chưa có / đang tắt
 

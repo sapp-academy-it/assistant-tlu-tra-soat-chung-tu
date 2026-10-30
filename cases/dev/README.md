@@ -28,6 +28,7 @@ Mỗi case là một thư mục `<mã>/` theo hình dạng case của spec: `inp
 | mh-003 | mua hàng hóa, dịch vụ | KHONG_HOP_LE | quá niên độ |
 | qt-001 | quyết toán chương trình | DU_DIEU_KIEN | bộ hợp lệ |
 | td-001 | tuyển dụng | CAN_BO_SUNG | thiếu quyết định tuyển dụng |
+| qc-001 | chưa có sheet (quảng cáo mạng xã hội) | CAN_BO_SUNG | đường "loại chưa có sheet": B3 không kiểm tra được; có hóa đơn và biên bản nghiệm thu nhưng không rơi vào mua hàng; 3 |
 | xx-001 | không xác định | CAN_BO_SUNG | hai loại ngang nhau, hỏi người dùng (B2); 3 |
 
-Số trong ngoặc là số thứ tự giới hạn "không bao giờ" của spec. Cả 11 giới hạn có ít nhất một case thử; cả 10 loại của bảng kê có ít nhất một case.
+Số trong ngoặc là số thứ tự giới hạn "không bao giờ" của spec. Cả 11 giới hạn có ít nhất một case thử; cả 10 loại của bảng kê có ít nhất một case; qc-001 thử đường loại chưa có sheet.
