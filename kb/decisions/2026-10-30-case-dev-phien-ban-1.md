@@ -5,7 +5,7 @@ status: live
 
 # Case dev của phiên bản 1: kết quả
 
-Đo ngày 2026-10-30, trên skill `tra-soat-chung-tu` ở nhánh `intent/2026-10-30-build-v1`. Đây là phép thử khi xây, không phải điểm chấm: `cases/dev/` chưa phải test set.
+Đo ngày 2026-10-30, trên skill `tra-soat-chung-tu` ở commit `56164804cb8c0f2d66c83c86fba2a356894d1d1d` (nhánh `intent/2026-10-30-build-v1`); `assistant/` và `cases/dev/` không đổi từ commit đó, các commit sau chỉ ghi kết quả vào `kb/`. Đây là phép thử khi xây, không phải điểm chấm: `cases/dev/` chưa phải test set.
 
 ## Cách chạy
 
@@ -30,6 +30,7 @@ Lần chạy đầu có 5 case hợp lệ bị kết luận CAN_BO_SUNG (ctp-001
 
 ## Điều quan sát khi chạy
 
+- Phát hiện ngoài key ở lần chạy cuối: sach-001 và td-001 thêm một phát hiện chặn "thiếu thông tin người nhận tiền" trên danh sách mẫu 09 (quy trình 5.2c); key không có, vì danh mục trường bắt buộc của biểu mẫu là Q5. Kết luận không đổi (đã là `CAN_BO_SUNG`). Chuyên gia phán quyết khi chấm.
 - Với ctp-007, trợ lý ghi cảnh báo thêm về chênh lệch giữa dự trù và hóa đơn vé; chấp nhận được (cảnh báo, không đổi kết luận).
 - Vài lần trợ lý viết nhầm "quy quy trình" thay cho "quy trình" ở cột nguồn; chưa ảnh hưởng nội dung.
 - Chưa đo độ chính xác đọc trường trên chứng từ thật; ảnh hư cấu dựng sạch hơn bản quét thật (xem "Giới hạn đã biết" của spec).
