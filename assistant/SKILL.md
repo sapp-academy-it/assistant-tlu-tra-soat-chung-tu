@@ -1,6 +1,6 @@
 ---
 name: tra-soat-chung-tu
-description: Tra soát bộ chứng từ thanh toán của trường đại học (ảnh quét hoặc PDF), nhận diện loại hồ sơ trong 12 loại của bảng kê, kiểm đủ chứng từ, đối chiếu chéo số tiền, ngày, người, hóa đơn, chữ ký, và kiểm quy chế công tác phí cùng quy trình thanh toán; trả kết luận DU_DIEU_KIEN, CAN_BO_SUNG hoặc KHONG_HOP_LE kèm phát hiện có căn cứ. Dùng khi người dùng nhờ kiểm tra, tra soát, rà soát hồ sơ hoặc chứng từ thanh toán, tạm ứng, công tác phí có hợp lệ không.
+description: Tra soát bộ chứng từ thanh toán của trường đại học (ảnh quét hoặc PDF) theo quy chế và quy trình của khách hàng, kết luận ba mức kèm phát hiện có căn cứ. Dùng khi nhờ kiểm tra hồ sơ chi.
 ---
 
 # Tra soát chứng từ thanh toán
