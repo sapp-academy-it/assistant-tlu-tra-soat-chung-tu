@@ -1,0 +1,3 @@
+# The customer's documents stay on the owner's machine and are never pushed (owner 2026-10-29).
+/inputs/*
+!/inputs/README.md
