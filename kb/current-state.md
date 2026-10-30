@@ -9,8 +9,10 @@ Chỉ ghi trạng thái hiện hành, viết đè khi repo đổi. Không lịch
 - Năm cổng quy trình chạy trên runner GitHub-hosted: commit-discipline, pr-sensitive, pr-title, pr-body, dead-branches.
 - Workflow đọc biến `CI_GATE_RUNNER`, rồi `CI_RUNNER`, dự phòng `ubuntu-latest`.
 - Mã cổng ở `.vibemaestro/gates/`.
+- `assistant/` có skill `tra-soat-chung-tu` bản 1 (tám bước B1 đến B8, 11 giới hạn, `reference/` ghi quy chế, quy trình, bảng kê) và `plugin.json`.
+- `cases/dev/` có 20 case hư cấu thử trên skill, kết quả ở `kb/decisions/2026-10-30-case-dev-phien-ban-1.md`.
 
 ## Chưa có / đang tắt
 
-- `assistant/` chỉ có README khuôn mẫu, chưa có skill; chưa có test case, chưa có tag phiên bản, chưa có điểm chấm.
+- Chưa có tag phiên bản, chưa có `cases/test-v1`, chưa có điểm chấm.
 - Bốn câu hỏi mở cho chuyên gia nghiệp vụ còn mở, ghi trong spec.
